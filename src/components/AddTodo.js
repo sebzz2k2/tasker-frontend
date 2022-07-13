@@ -38,7 +38,6 @@ const AddTodo = () => {
       <TextField
         sx={styles.textField}
         error={!error ? false : true}
-        id="standard-error-helper-text"
         label="Add Todo"
         size="small"
         value={todo}
