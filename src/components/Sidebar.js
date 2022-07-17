@@ -18,7 +18,6 @@ import ManageAccountsRoundedIcon from "@mui/icons-material/ManageAccountsRounded
 
 import { darkThemeColors } from "../Extras/color";
 import { defaultFont } from "../Extras/fonts";
-import { Box } from "@mui/material";
 
 const styles = {
   drawerStyles: {
@@ -62,10 +61,6 @@ const styles = {
       boxShadow: "none",
     },
   },
-  listItemIcon: {
-    color: "inherit",
-  },
-  listItemText: {},
 };
 
 export const Sidebar = () => {

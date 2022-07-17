@@ -37,7 +37,7 @@ function App() {
                   path="*"
                   element={<Navigate to="/dashboard" replace />}
                 />
-                <Route path="project" element={<TodoList />} />
+                <Route path="projects" element={<TodoList />} />
                 <Route path="teams" element={<TodoList />} />
                 <Route path="my-todo" element={<TodoList />} />
                 <Route path="settings" element={<TodoList />} />
