@@ -4,6 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import CloseIcon from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
+import Divider from "@mui/material/Divider";
 
 import Modal from "@mui/material/Modal";
 
@@ -11,106 +12,35 @@ import { useSelector, useDispatch } from "react-redux";
 import { Stack, Typography, Checkbox, IconButton, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
-import { toggleTodo, deletedTodo, editTodo } from "../redux/action";
+import { toggleTodo, deletedTodo, editTodo } from "../../redux/action";
+import { styles } from "./MyTodoStyles";
 
-const styles = {
-  paperStyles: {
-    width: "30%",
-    padding: ".5em",
-  },
-  stack: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  todoName: {
-    overFlow: "hidden",
-    wordWrap: "break-word",
-    whiteSpace: "pre-wrap",
-    wordBreak: " break-word",
-    fontSize: "1.2em",
-    fontWeight: "bold",
-    textTransform: "capitalize",
-  },
-  modalStyle: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "white",
-    border: "2px solid #000",
-  },
-  modalStack: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-};
-
-export const AllTodoList = () => {
-  const [todoItem, setTodoItem] = useState([]);
-  let { todo } = useSelector((state) => state);
-  useEffect(() => {
-    setTodoItem(todo);
-  }, [todo]);
-
+export const List = (props) => {
+  const { title, todoItem } = props;
   return (
-    <Box>
-      All
-      {todoItem &&
-        todoItem.map((todo) => (
-          <TodoItem
+    <Box sx={styles.listBox}>
+      <Typography sx={styles.headingTypography}>{title}</Typography>
+      <Divider sx={styles.dividerColor} />
+      <Stack sx={styles.listStack}>
+        {todoItem.map((todo) => (
+          <ListItem
             key={todo.id}
             id={todo.id}
             name={todo.name}
             completed={todo.completed}
           />
         ))}
+      </Stack>
     </Box>
   );
 };
-export const CompletedTodoList = () => {
-  const [todoItem, setTodoItem] = useState([]);
-  let { todo } = useSelector((state) => state);
-  useEffect(() => {
-    const completedTodo = todo.filter((val) => val.completed === true);
-    setTodoItem(completedTodo);
-  }, [todo]);
-
+const ListItem = (props) => {
+  const { name } = props;
   return (
-    <Box>
-      completed
-      {todoItem &&
-        todoItem.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            id={todo.id}
-            name={todo.name}
-            completed={todo.completed}
-          />
-        ))}
-    </Box>
-  );
-};
-export const TodoList = () => {
-  const [todoItem, setTodoItem] = useState([]);
-  let { todo } = useSelector((state) => state);
-  useEffect(() => {
-    const completedTodo = todo.filter((val) => val.completed !== true);
-    setTodoItem(completedTodo);
-  }, [todo]);
-
-  return (
-    <Box>
-      not completed
-      {todoItem &&
-        todoItem.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            id={todo.id}
-            name={todo.name}
-            completed={todo.completed}
-          />
-        ))}
-    </Box>
+    <Paper sx={styles.paperStyles}>
+      <Typography sx={styles.paperTitle}>{name}</Typography>
+      <Divider sx={styles.dividerColor} />
+    </Paper>
   );
 };
 

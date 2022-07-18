@@ -10,11 +10,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import { Sidebar } from "./components/Sidebar";
-import {
-  AllTodoList,
-  CompletedTodoList,
-  TodoList,
-} from "./components/TodoList";
+
+import MyTodo from "./pages/MyTodo/index";
 
 let styles = {
   stack1: { flexDirection: "row" },
@@ -24,7 +21,7 @@ let styles = {
 function App() {
   return (
     <>
-      <Box>
+      <Box sx={{ background: "#212121" }}>
         <Router>
           <Stack sx={styles.stack1}>
             <Sidebar />
@@ -32,23 +29,20 @@ function App() {
               <Header />
               <Routes>
                 {/* set default route */}
-                <Route path="dashboard" element={<TodoList />} />
+                <Route path="dashboard" element={<MyTodo />} />
                 <Route
-                  path="*"
+                  path="/"
                   element={<Navigate to="/dashboard" replace />}
                 />
-                <Route path="projects" element={<TodoList />} />
-                <Route path="teams" element={<TodoList />} />
-                <Route path="my-todo" element={<TodoList />} />
-                <Route path="settings" element={<TodoList />} />
-                <Route path="account" element={<TodoList />} />
+                <Route path="projects" element={<MyTodo />} />
+                <Route path="teams" element={<MyTodo />} />
+                <Route path="my-todo" element={<MyTodo />} />
+                <Route path="settings" element={<MyTodo />} />
+                <Route path="account" element={<MyTodo />} />
               </Routes>
             </Stack>
           </Stack>
         </Router>
-        <AllTodoList />
-        <CompletedTodoList />
-        <TodoList />
       </Box>
     </>
   );

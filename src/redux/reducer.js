@@ -47,8 +47,6 @@ const todoReducer = (state = initialState, action) => {
         ...state,
         todo: [...editTodo.todo],
       };
-      break;
-
     default:
       return state;
   }

@@ -4,4 +4,6 @@ export const darkThemeColors = {
   sideBar: "#292929",
   unselected: "#8F8F8F",
   hover: "#383838",
+  darkGray: "#212121",
+  shadowGray: "#070707",
 };

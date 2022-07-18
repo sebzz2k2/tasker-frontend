@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
@@ -27,10 +27,10 @@ const styles = {
     position: "relative",
     left: "0",
     top: "0",
-    height: "100vh",
+    boxShadow: `2.5px 0 5px ${darkThemeColors.shadowGray}`,
+
     "& .MuiDrawer-paper": {
       backgroundColor: darkThemeColors.sideBar,
-
       width: 240,
       boxSizing: "border-box",
     },
@@ -66,13 +66,18 @@ const styles = {
 export const Sidebar = () => {
   const [active, setActive] = useState("");
 
+  useEffect(() => {
+    let path = window.location.pathname;
+    setActive(path.substring(1));
+  }, []);
+
   const handleClick = (event) => {
     setActive(event.target.id);
   };
   return (
     <Drawer sx={styles.drawerStyles} variant="permanent" anchor="left">
       <Stack sx={styles.headingStack}>
-        <Typography sx={styles.mainTypography}>t-Mate</Typography>
+        <Typography sx={styles.mainTypography}>Tasker</Typography>
       </Stack>
       <Divider sx={styles.dividerColor} />
       <List>
