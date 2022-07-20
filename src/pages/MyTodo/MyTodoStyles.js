@@ -125,4 +125,18 @@ export const styles = {
       background: darkThemeColors.gray,
     },
   },
+  emptyTypo: {
+    fontFamily: defaultFont.secondary,
+    color: darkThemeColors.heading,
+    fontSize: "1.2em",
+    fontWeight: "600",
+    textAlign: "center",
+    marginTop: "2em",
+  },
+  todoStack: {
+    padding: "2em",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "75%",
+  },
 };

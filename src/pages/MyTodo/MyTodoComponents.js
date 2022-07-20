@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import EditIcon from "@mui/icons-material/Edit";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
-import DeleteIcon from "@mui/icons-material/Delete";
 import DoneAllRoundedIcon from "@mui/icons-material/DoneAllRounded";
-import RestoreRoundedIcon from "@mui/icons-material/RestoreRounded";
 import CloseIcon from "@mui/icons-material/Close";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import SettingsBackupRestoreRoundedIcon from "@mui/icons-material/SettingsBackupRestoreRounded";
@@ -13,10 +10,12 @@ import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 
+import empty from "../../Assets/svgs/emptytodo.svg";
+
 import Modal from "@mui/material/Modal";
 
-import { useSelector, useDispatch } from "react-redux";
-import { Stack, Typography, Checkbox, Button } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { Stack, Typography, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
 import {
@@ -60,16 +59,21 @@ export const List = (props) => {
         ) : null}
       </Stack>
       <Divider sx={styles.dividerColor} />
-      <Stack sx={styles.listStack}>
-        {todoItem.map((todo) => (
-          <ListItem
-            key={todo.id}
-            id={todo.id}
-            name={todo.name}
-            completed={todo.completed}
-          />
-        ))}
-      </Stack>
+      {todoItem.length === 0 ? (
+        <EmptyState />
+      ) : (
+        <Stack sx={styles.listStack}>
+          {todoItem.map((todo) => (
+            <ListItem
+              key={todo.id}
+              id={todo.id}
+              name={todo.name}
+              completed={todo.completed}
+            />
+          ))}
+        </Stack>
+      )}
+
       {addOpen && (
         <ModalComponent
           open={addOpen}
@@ -243,5 +247,16 @@ const ModalComponent = ({
         </Stack>
       </Box>
     </Modal>
+  );
+};
+
+const EmptyState = () => {
+  return (
+    <Stack sx={styles.todoStack}>
+      <img src={empty} style={{ width: "100%" }} />
+      <Typography sx={styles.emptyTypo}>
+        Looks like this section is empty!!
+      </Typography>
+    </Stack>
   );
 };
