@@ -11,6 +11,8 @@ import {
 import { Sidebar } from "./components/Sidebar";
 
 import MyTodo from "./pages/MyTodo/index";
+import CommingSoon from "./pages/CommingSoon";
+import PageNotFound from "./components/PageNotFound";
 
 let styles = {
   stack1: { flexDirection: "row" },
@@ -27,16 +29,21 @@ function App() {
             <Stack sx={styles.stack2}>
               <Routes>
                 {/* set default route */}
-                <Route path="dashboard" element={<MyTodo />} />
+                <Route path="page-not-found" element={<PageNotFound />} />
+                <Route path="dashboard" element={<CommingSoon />} />
                 <Route
                   path="/"
                   element={<Navigate to="/dashboard" replace />}
                 />
-                <Route path="projects" element={<MyTodo />} />
-                <Route path="teams" element={<MyTodo />} />
+                <Route
+                  path="/*"
+                  element={<Navigate to="/page-not-found" replace />}
+                />
+                <Route path="projects" element={<CommingSoon />} />
+                <Route path="teams" element={<CommingSoon />} />
                 <Route path="my-todo" element={<MyTodo />} />
-                <Route path="settings" element={<MyTodo />} />
-                <Route path="account" element={<MyTodo />} />
+                <Route path="settings" element={<CommingSoon />} />
+                <Route path="account" element={<CommingSoon />} />
               </Routes>
             </Stack>
           </Stack>
