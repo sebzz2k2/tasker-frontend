@@ -55,10 +55,10 @@ const styles = {
     fontSize: "1.25em",
     fontWeight: "600",
     width: "100%",
+
     "&:hover": {
       backgroundColor: darkThemeColors.hover,
       color: darkThemeColors.gray,
-      boxShadow: "none",
     },
   },
 };

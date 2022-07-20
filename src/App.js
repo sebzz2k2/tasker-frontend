@@ -1,7 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import Header from "./components/Header";
 
 import {
   BrowserRouter as Router,
@@ -26,7 +25,6 @@ function App() {
           <Stack sx={styles.stack1}>
             <Sidebar />
             <Stack sx={styles.stack2}>
-              <Header />
               <Routes>
                 {/* set default route */}
                 <Route path="dashboard" element={<MyTodo />} />

@@ -28,26 +28,29 @@ export const styles = {
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  todoName: {
-    overFlow: "hidden",
-    wordWrap: "break-word",
-    whiteSpace: "pre-wrap",
-    wordBreak: " break-word",
-    fontSize: "1.2em",
-    fontWeight: "bold",
-    textTransform: "capitalize",
-  },
   modalStyle: {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "white",
-    border: "2px solid #000",
+    borderRadius: "7px",
+    width: 450,
+    height: "400px",
+
+    boxShadow: `5px 5px 10px ${darkThemeColors.shadowGray}`,
+    " & .css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop": {
+      borderRadius: "7px",
+    },
+  },
+  modalBox: {
+    backgroundColor: darkThemeColors.sideBar,
+    borderRadius: "7px",
+    height: "400px",
   },
   modalStack: {
     flexDirection: "row",
     justifyContent: "space-between",
+    margin: "0 1em",
   },
   dividerColor: {
     bgcolor: darkThemeColors.gray,
@@ -65,6 +68,61 @@ export const styles = {
     color: darkThemeColors.heading,
     fontSize: "1.2em",
     fontWeight: "600",
-    padding: ".75em 1.25em .5em",
+    padding: ".75em 0 .5em",
+    textShadow: `5px 5px 10px ${darkThemeColors.shadowGray}`,
+  },
+  addButton: {
+    margin: "7px",
+    bgcolor: darkThemeColors.hover,
+    boxShadow: `.5px .5px 2.5px ${darkThemeColors.shadowGray}`,
+  },
+  closeButton: {
+    margin: "7px",
+    backgroundColor: darkThemeColors.sideBar,
+  },
+  itemButton: {
+    margin: "5px",
+    backgroundColor: darkThemeColors.darkGray,
+    padding: "2px",
+  },
+  textfield: {
+    width: "100%",
+    boxShadow: `1px 1px 10px ${darkThemeColors.shadowGray}`,
+
+    marginTop: "2em",
+    "& input": {
+      color: "white",
+    },
+    "& textarea": {
+      color: "white",
+    },
+    "& .MuiInputLabel-root": { color: darkThemeColors.heading },
+    "& .MuiOutlinedInput-root": {
+      "& > fieldset": { border: `1.25px solid ${darkThemeColors.heading}` },
+    },
+    "& .MuiOutlinedInput-root.Mui-focused": {
+      "& > fieldset": {
+        borderColor: darkThemeColors.heading,
+      },
+      color: darkThemeColors.heading,
+    },
+    "& .MuiOutlinedInput-root:hover": {
+      "& > fieldset": {
+        border: `2.5px solid ${darkThemeColors.heading}`,
+      },
+    },
+  },
+  buttonStyles: {
+    fontFamily: defaultFont.teritary,
+    background: darkThemeColors.heading,
+    fontWeight: "bold",
+    color: darkThemeColors.sideBar,
+    width: "100%",
+    marginTop: "2em",
+    boxShadow: `.5px 5px 15px ${darkThemeColors.shadowGray}`,
+
+    "&:hover": {
+      background: darkThemeColors.gray,
+    },
   },
 };
