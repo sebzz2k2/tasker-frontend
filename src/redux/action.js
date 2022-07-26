@@ -1,4 +1,4 @@
-import { TOGGLE_TODO, EDIT_TODO, GET_ALL_TODO } from "./actionType";
+import { GET_ALL_TODO } from "./actionType";
 
 import axios from "axios";
 import URL from "../Extras/URLS";
