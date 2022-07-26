@@ -14,10 +14,10 @@ import empty from "../../Assets/svgs/emptytodo.svg";
 
 import Modal from "@mui/material/Modal";
 
-import { useDispatch } from "react-redux";
 import { Stack, Typography, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
+import { useDispatch } from "react-redux";
 import {
   toggleTodo,
   deletedTodo,
@@ -65,8 +65,8 @@ export const List = (props) => {
         <Stack sx={styles.listStack}>
           {todoItem.map((todo) => (
             <ListItem
-              key={todo.id}
-              id={todo.id}
+              key={todo._id}
+              id={todo._id}
               name={todo.name}
               completed={todo.completed}
             />

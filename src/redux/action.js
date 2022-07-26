@@ -1,43 +1,52 @@
-import {
-  ADD_NEW_TODO,
-  TOGGLE_TODO,
-  DELETE_TODO,
-  EDIT_TODO,
-} from "./actionType";
+import { TOGGLE_TODO, EDIT_TODO, GET_ALL_TODO } from "./actionType";
+
+import axios from "axios";
+import URL from "../Extras/URLS";
 
 export const addNewTodo = (todoItem) => async (dispatch) => {
+  await axios
+    .post(`${URL}todo/add-todo`, {
+      name: todoItem,
+    })
+    .then(() => dispatch(getAllTodo()))
+    .catch((err) => console.log(err));
+};
+export const getAllTodo = () => async (dispatch) => {
+  let response = await axios
+    .get(`${URL}todo/all-todo`)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   dispatch({
-    type: ADD_NEW_TODO,
+    type: GET_ALL_TODO,
     payload: {
-      todoItem: todoItem,
+      todoArray: response,
     },
   });
 };
 export const toggleTodo = (todoItem) => async (dispatch) => {
-  dispatch({
-    type: TOGGLE_TODO,
-    payload: {
-      id: todoItem.id,
-      name: todoItem.name,
+  await axios
+    .put(`${URL}todo/toggle-todo/${todoItem.id}`, {
       completed: !todoItem.completed,
-    },
-  });
+    })
+    .then(() => dispatch(getAllTodo()))
+    .catch((err) => console.log(err));
 };
 export const editTodo = (todoItem) => async (dispatch) => {
-  dispatch({
-    type: EDIT_TODO,
-    payload: {
-      id: todoItem.id,
+  await axios
+    .put(`${URL}todo/edit-todo/${todoItem.id}`, {
       name: todoItem.name,
-    },
-  });
+    })
+    .then(() => dispatch(getAllTodo()))
+    .catch((err) => console.log(err));
 };
 
 export const deletedTodo = (todoId) => async (dispatch) => {
-  dispatch({
-    type: DELETE_TODO,
-    payload: {
-      todoId,
-    },
-  });
+  await axios
+    .delete(`${URL}todo/delete-todo/${todoId}`)
+    .then(() => dispatch(getAllTodo()))
+    .catch((err) => console.log(err));
 };
