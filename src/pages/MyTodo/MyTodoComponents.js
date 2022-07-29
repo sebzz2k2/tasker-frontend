@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
+import { darkThemeColors } from "../../Extras/color";
 
 import empty from "../../Assets/svgs/emptytodo.svg";
 
@@ -23,7 +24,7 @@ import {
   deletedTodo,
   editTodo,
   addNewTodo,
-} from "../../redux/action";
+} from "../../redux/Todo/action";
 import { styles } from "./MyTodoStyles";
 
 export const List = (props) => {
@@ -223,6 +224,7 @@ const ModalComponent = ({
         >
           <TextField
             variant="outlined"
+            InputLabelProps={{ style: { color: darkThemeColors.heading } }}
             error={error ? true : false}
             value={item}
             sx={styles.textfield}
@@ -233,6 +235,7 @@ const ModalComponent = ({
           <TextField
             // error={error ? true : false}
             multiline
+            InputLabelProps={{ style: { color: darkThemeColors.heading } }}
             variant="outlined"
             rows={4}
             sx={styles.textfield}

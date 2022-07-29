@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTodo } from "../../redux/action";
+import { getAllTodo } from "../../redux/Todo/action";
 import Stack from "@mui/material/Stack";
 import { List } from "./MyTodoComponents.js";
 import { styles } from "./MyTodoStyles";
