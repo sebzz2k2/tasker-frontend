@@ -88,4 +88,8 @@ export const styles = {
       color: darkThemeColors.heading,
     },
   },
+  editUserContent: {
+    width: "75%",
+    alignItems: "center",
+  },
 };

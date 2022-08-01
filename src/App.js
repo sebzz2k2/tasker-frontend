@@ -17,6 +17,7 @@ import PageNotFound from "./components/PageNotFound";
 import Login from "./pages/Authorization/Login";
 import Register from "./pages/Authorization/Register";
 import LoginToContinue from "./pages/LoginToContinue";
+import EditUser from "./pages/Authorization/EditUser";
 
 let styles = {
   stack1: { flexDirection: "row" },
@@ -60,7 +61,7 @@ function App() {
                     <Route path="teams" element={<CommingSoon />} />
                     <Route path="my-todo" element={<MyTodo />} />
                     <Route path="settings" element={<CommingSoon />} />
-                    <Route path="account" element={<CommingSoon />} />
+                    <Route path="account" element={<EditUser />} />
                   </>
                 ) : (
                   <>

@@ -1,5 +1,5 @@
 import { GET_ALL_TODO } from "./Todo/actionType";
-import { SET_USER } from "./Auth/authActionType";
+import { SET_USER, EDIT_USER_SUCCESS } from "./Auth/authActionType";
 
 let initialState = {
   todo: [],
@@ -23,6 +23,9 @@ const todoReducer = (state = initialState, action) => {
         ...state,
         user: action.payload.userLogData,
       };
+
+    case EDIT_USER_SUCCESS:
+      return state;
 
     default:
       return state;
