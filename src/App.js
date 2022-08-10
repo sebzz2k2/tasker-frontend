@@ -54,20 +54,12 @@ function App() {
                 />
                 {isLoggedIn ? (
                   <>
-                    <Route path="dashboard" element={<CommingSoon />} />
-                    <Route path="projects" element={<CommingSoon />} />
-                    <Route path="teams" element={<CommingSoon />} />
                     <Route path="my-todo" element={<MyTodo />} />
-                    <Route path="settings" element={<CommingSoon />} />
                     <Route path="account" element={<EditUser />} />
                   </>
                 ) : (
                   <>
-                    <Route path="dashboard" element={<LoginToContinue />} />
-                    <Route path="projects" element={<LoginToContinue />} />
-                    <Route path="teams" element={<LoginToContinue />} />
                     <Route path="my-todo" element={<LoginToContinue />} />
-                    <Route path="settings" element={<LoginToContinue />} />
                     <Route path="account" element={<LoginToContinue />} />
                   </>
                 )}

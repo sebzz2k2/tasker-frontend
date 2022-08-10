@@ -85,69 +85,6 @@ export const Sidebar = () => {
           <Button
             sx={styles.itemButton}
             component={NavLink}
-            to="/dashboard"
-            onClick={handleClick}
-            id="dashboard"
-            style={{
-              backgroundColor:
-                active === "dashboard" ? darkThemeColors.hover : null,
-              color:
-                active === "dashboard"
-                  ? darkThemeColors.gray
-                  : darkThemeColors.unselected,
-            }}
-            startIcon={<GridViewRoundedIcon />}
-          >
-            Dashboard
-          </Button>
-        </ListItem>
-
-        <ListItem>
-          <Button
-            sx={styles.itemButton}
-            component={NavLink}
-            to="/projects"
-            onClick={handleClick}
-            id="projects"
-            style={{
-              backgroundColor:
-                active === "projects" ? darkThemeColors.hover : null,
-              color:
-                active === "projects"
-                  ? darkThemeColors.gray
-                  : darkThemeColors.unselected,
-            }}
-            startIcon={<AccountTreeRoundedIcon />}
-          >
-            Project
-          </Button>
-        </ListItem>
-
-        <ListItem>
-          <Button
-            sx={styles.itemButton}
-            component={NavLink}
-            to="/teams"
-            onClick={handleClick}
-            id="teams"
-            style={{
-              backgroundColor:
-                active === "teams" ? darkThemeColors.hover : null,
-              color:
-                active === "teams"
-                  ? darkThemeColors.gray
-                  : darkThemeColors.unselected,
-            }}
-            startIcon={<GroupsRoundedIcon />}
-          >
-            My Teams
-          </Button>
-        </ListItem>
-
-        <ListItem>
-          <Button
-            sx={styles.itemButton}
-            component={NavLink}
             to="/my-todo"
             onClick={handleClick}
             id="my-todo"
@@ -167,27 +104,6 @@ export const Sidebar = () => {
       </List>
       <Divider sx={styles.dividerColor} />
       <List>
-        <ListItem>
-          <Button
-            sx={styles.itemButton}
-            component={NavLink}
-            to="/settings"
-            onClick={handleClick}
-            id="settings"
-            style={{
-              backgroundColor:
-                active === "settings" ? darkThemeColors.hover : null,
-              color:
-                active === "settings"
-                  ? darkThemeColors.gray
-                  : darkThemeColors.unselected,
-            }}
-            startIcon={<SettingsRoundedIcon />}
-          >
-            Settings
-          </Button>
-        </ListItem>
-
         <ListItem>
           <Button
             sx={styles.itemButton}
