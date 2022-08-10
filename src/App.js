@@ -40,16 +40,14 @@ function App() {
       <Box sx={{ background: "#212121" }}>
         <Router>
           <Stack sx={styles.stack1}>
-            {user && user.userName ? <Sidebar /> : null}
+            {isLoggedIn ? <Sidebar /> : null}
             <Stack sx={styles.stack2}>
               <Routes>
                 {/* set route */}
                 <Route path="page-not-found" element={<PageNotFound />} />
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
-
                 <Route path="/" element={<Navigate to="/login" replace />} />
-
                 <Route
                   path="/*"
                   element={<Navigate to="/page-not-found" replace />}
